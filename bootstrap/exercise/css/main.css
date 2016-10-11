@@ -1,5 +1,9 @@
 header {
     background-image: url(../img/pacific.jpg);
     color: #333;
+    background-size: cover;
+}
+
+parallax-container {
     height: 100%;
 }
