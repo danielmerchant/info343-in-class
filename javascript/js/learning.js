@@ -41,7 +41,11 @@ console.group("PRACTICE: Variables and Basic Types");
 //Create another variable named `y`, assign it the value
 //currently held in the variable `x`, and write the value
 //of `y` to the console log
-
+var y = x;
+console.log(y);
+y = 10;
+console.log(x);
+console.log(y);
 
 //now assign `y` the numeric value 10
 //what does x contain now? Write it to the console
@@ -78,12 +82,15 @@ console.group("PRACTICE: Strings");
 //with some text, and then create another string `s4`
 //and assign it the concatenation of `s2` and `s3`
 //then write it to the console so you can verify it worked.
-
+var s2 = "All the King's horses"
+var s3 = "and all the King's men"
+var s4 = s2 + " " + s3;
+console.log(s4);
 
 //use the `.trim()` method to remove the leading and
 //trailing white space from this string
 var withSpaces = "    trim those spaces!     ";
-
+console.log(withSpaces.trim());
 
 console.groupEnd();
 
@@ -158,8 +165,18 @@ console.group("PRACTICE: Objects");
 //now try adding a property named `web site` (with a space)
 //setting it to some string value...it's tricky...
 
+var course2 = {
+    curriculum: "INFO",
+    number: 340,
+    name: "Relational Database Management Systems",
+    section: "D",
+    quarter: 1,
+    year: 2016,
+    awesome: true
+};
 
-
+course2["web site"] = "https://ischool.uw.edu";
+console.log(course2);
 
 console.groupEnd();
 
@@ -198,6 +215,11 @@ console.group("PRACTICE: Arrays");
 //--PRACTICE--
 //create another array of playing card suits
 //(clubs, diamonds, hearts, spades)
+
+var suits = ["Clubs", "Diamonds", "Hearts", "Spades"];
+suits.push("Jokers");
+var last = suits[suits.length - 1];
+console.log(last);
 
 
 //then add a new element named "jokers"
@@ -287,6 +309,7 @@ console.groupCollapsed("Functions");
 function reverseString(s) {
     var reversed = "";
     var idx;
+    s = String(s);
     for (idx = s.length-1; idx >= 0; idx--) {
         //short form of reversed = reversed + s.charAt(idx)
         reversed += s.charAt(idx);
@@ -343,6 +366,16 @@ console.group("PRACTICE: Functions");
 //if they are equal to each other. Then call it a few times
 //with various numbers to test it.
 
+function minimum (x, y) {
+    if (y < x) {
+        return y;
+    }
+    return x;
+}
+
+console.log(minimum(2, 4));
+console.log(minimum(10, 4));
+console.log(minimum(1, 1));
 
 console.groupEnd();
 
@@ -417,7 +450,16 @@ function generateRandomNumbers(howMany, minimum, maximum) {
 }
 
 //>>> your code goes here!
+var array = generateRandomNumbers(10, 1, 100);
 
+var doubleNum = function(x) {
+    return x * 2;
+}
+
+console.log(array);
+var doubleArray = array.map(doubleNum);
+console.log(doubleArray);
+console.log(doubleArray.reduce(minimum));
 
 //now use the .sort() method on a generated array of random
 //numbers to sort them. Note that by default, sort will 
