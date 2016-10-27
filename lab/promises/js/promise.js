@@ -16,6 +16,26 @@
  
  //part 1 code
 
+var getLocation = function() {
+  return fetch("https://freegeoip.net/json/");
+}
+
+var what = getLocation();
+console.log(what);
+
+var getWeather = function(location) {
+  return fetch("api.openweathermap.org/data/2.5/weather?q=" + location.city + "&APPID=0a8057017628572b7078f10db10bc3b7");
+}
+getLocation()
+  .then(getWeather(location))
+  .then(function() {
+    console.log("everything worked!");
+  }) 
+  .catch(function() {
+    console.log("something isn't working");
+  });
+
+
  /*
   Part 2: Show the difference between parallel and serial promises
 
