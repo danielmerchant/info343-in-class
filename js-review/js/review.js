@@ -1,4 +1,4 @@
-/**
+ /**
  * JavaScript Review Session
  */
 
@@ -110,8 +110,8 @@ logValue("2016-10-27", formatAsDate);
 var someNumber = 123456789;
 //logValue(...)
 
-
-
+logValue(someNumber, formatAsNumber);
+logValue(someNumber, formatAsCurrency);
 
 
 
@@ -190,6 +190,9 @@ console.log("property names:", propNames);
  * see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
  */
 
+propNames.forEach(function(key) {
+    console.log(key + " = " + course[key]);
+});
 
 
 
@@ -272,6 +275,10 @@ females.sort(function(record1, record2) {
     return record1.count - record2.count;
 });
 
+males.sort(function(record1, record2) {
+    return record2.count - record1.count;
+});
+
 //every array has a `.slice()` method that you can use
 //to slice off a range of the array elements
 var leastPopFemRecs = females.slice(0,10);
@@ -351,7 +358,13 @@ console.log("Total count", formatAsNumber(totalCount));
  * just reverse the logic in your compare function.
  */
 
+var mostPopularMNames = males.slice(0, 10);
 
+mostPopularMNames = mostPopularMNames.map(function(record) {
+    return record.name;
+});
+
+console.log("most popular male names:", mostPopularMNames.join(", "));
 
 /**
  * PRACTICE

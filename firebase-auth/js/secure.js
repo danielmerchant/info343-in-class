@@ -22,5 +22,5 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 document.getElementById("sign-out-button").addEventListener("click", function() {
     //tell Firebase to sign the current user out...
-
+    firebase.auth().signOut();
 });
