@@ -33,7 +33,7 @@ export default class extends React.Component {
     render() {    	
         return (
         	<div>
-	        	<p className="center-text">Replace this with your app</p>
+	        	<p className="center-text">Current Weather</p>
 	        	<SearchCity />
 	        	<WeatherCard />
 	        </div>
