@@ -6,7 +6,9 @@ export default class extends React.Component {
 	}
 
 	render() {		
-		return <p className="center-text">Replace this with your weather display element.</p>;
+		return (
+			<div></div>
+		);
 	}
 }
 		

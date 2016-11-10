@@ -9,14 +9,22 @@ import SearchCity from './SearchCity.jsx';
 // http://openweathermap.org/current ('By city name' is the first option)
 // Use the Fetch api to make your calls : https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 // Familiarize yourself with React's lifecycle methods : https://facebook.github.io/react/docs/react-component.html
-const url = 'http://api.openweathermap.org/data/2.5/weather?q=';
+const url = 'http://api.openweathermap.org/data/2.5/weather?q=Seattle';
 // Put your key after the '='
-const key = '&APPID=';
+const key = '&APPID=6a040e0415e1c17b2574d815520a3dbf';
 
 export default class extends React.Component {
     constructor(props) {
         super(props);
-    }
+		
+		this.state = {}
+	}
+
+	componentDidMount() {
+			fetch(url + key)
+				.then(response => response.json())
+				.then(data => this.setState({weather: data}));
+	}
 	
 	// This function is for part 2. It looks at the state property for Fahrenheit (which you will have to define)
 	// and converts the initial temperature from Kelvin to either Fahrenheit or Celsius. 
@@ -30,10 +38,16 @@ export default class extends React.Component {
 	// 	}
 	// }
 
+
+
     render() {    	
-        return (
+        var location;
+		if (this.state.weather) {
+			location = (<span>{this.state.weather.name}</span>);
+		}
+		return (
         	<div>
-	        	<p className="center-text">Current Weather</p>
+	        	<h1 className="center-text">Current Weather</h1>
 	        	<SearchCity />
 	        	<WeatherCard />
 	        </div>
